@@ -2,12 +2,6 @@ import mongoose, { Mongoose } from 'mongoose'
 
 const MONGODB_URI = process.env.MONGO_DB_URL
 
-if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the "MONGODB_URI" environment variable in your .env.local file'
-  )
-}
-
 /**
  * Shape of the cached connection object stored on the global object.
  * Using a cache prevents exhausting the database connection limit
@@ -54,6 +48,12 @@ export async function connectToDatabase (): Promise<Mongoose> {
 
   // If no connection attempt is in progress, start one.
   if (!cached.promise) {
+    if (!MONGODB_URI) {
+      throw new Error(
+        'Please define the "MONGODB_URI" environment variable in your .env.local file'
+      )
+    }
+
     const opts: mongoose.ConnectOptions = {
       // Keeps the connection alive across serverless function invocations.
       bufferCommands: false

@@ -42,7 +42,8 @@ const BookingSchema = new Schema<IBookingDocument>(
         message: (props: { value: string }) =>
           `"${props.value}" is not a valid email address`
       },
-      index: true
+      index: true,
+      unique: true
     }
   },
   {
