@@ -19,9 +19,9 @@ const EventCard = ({ image, title, slug, location, date, time }: Props) => {
       event_title: title,
       event_slug: slug,
       event_location: location,
-      event_date: date,
-    });
-  };
+      event_date: date
+    })
+  }
 
   return (
     <Link href={`/events/${slug}`} id='event-card' onClick={handleClick}>
@@ -31,6 +31,7 @@ const EventCard = ({ image, title, slug, location, date, time }: Props) => {
         alt={title}
         width={410}
         height={300}
+        style={{ width: '100%', height: 'auto' }}
       />
       <div className='flex flex-row gap-2'>
         <Image
@@ -38,6 +39,7 @@ const EventCard = ({ image, title, slug, location, date, time }: Props) => {
           alt='location'
           width={14}
           height={14}
+          style={{ width: 'auto', height: 'auto' }}
         ></Image>
         <p className='location'>{location}</p>
       </div>
@@ -49,6 +51,7 @@ const EventCard = ({ image, title, slug, location, date, time }: Props) => {
             alt='date'
             width={14}
             height={14}
+            style={{ width: 'auto', height: 'auto' }}
           ></Image>
           <p>{date}</p>
         </div>
@@ -58,6 +61,7 @@ const EventCard = ({ image, title, slug, location, date, time }: Props) => {
             alt='time'
             width={14}
             height={14}
+            style={{ width: 'auto', height: 'auto' }}
           ></Image>
           <p>{time}</p>
         </div>

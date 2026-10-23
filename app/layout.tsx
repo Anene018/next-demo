@@ -1,39 +1,39 @@
-import type { Metadata } from "next";
-import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
-import "./globals.css";
-import LightRays from "@/components/LightRays";
-import NavBar from "@/components/NavBar";
+import type { Metadata } from 'next'
+import { Schibsted_Grotesk, Martian_Mono } from 'next/font/google'
+import './globals.css'
+import LightRays from '@/components/LightRays'
+import NavBar from '@/components/NavBar'
 
 const schibstedGrotesk = Schibsted_Grotesk({
-  variable: "--font-schibsted-grotesk",
-  subsets: ["latin"],
-});
+  variable: '--font-schibsted-grotesk',
+  subsets: ['latin']
+})
 
 const martianMono = Martian_Mono({
-  variable: "--font-martian-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-martian-mono',
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
-  title: "Dev Events",
-  description: "A hub for developer events and conferences.",
-};
+  title: 'Dev Events',
+  description: 'A hub for developer events and conferences.'
+}
 
-export default function RootLayout({
-  children,
+export default function RootLayout ({
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
       >
         <NavBar />
-        <div className="absolute inset-0 top-0 z[-1] min-h-screen">
+        <div className='absolute inset-0 top-0 z-[-1] min-h-screen'>
           <LightRays
-            raysOrigin="top-center-offset"
-            raysColor="#5dfeca"
+            raysOrigin='top-center-offset'
+            raysColor='#5dfeca'
             raysSpeed={0.5}
             lightSpread={0.8}
             rayLength={1.4}
@@ -44,8 +44,10 @@ export default function RootLayout({
           />
         </div>
 
-        {children}
+        <main className='mx-auto max-w-7xl px-5 sm:px-10 py-10'>
+          {children}
+        </main>
       </body>
     </html>
-  );
+  )
 }
