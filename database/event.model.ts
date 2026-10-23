@@ -21,8 +21,8 @@ export interface IEvent {
   agenda: string[]
   organizer: string
   tags: string[]
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | string
+  updatedAt: Date | string
 }
 
 /** Mongoose Document interface combining IEvent with Document methods. */
